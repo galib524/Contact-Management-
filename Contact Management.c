@@ -2,7 +2,10 @@
 
 struct contact { char name[100], phone[100], email[100]; };
 
-void addcontact() { FILE *file; file = fopen("contact.txt", "a"); if (file == NULL) { printf("File does not exist."); } else { struct contact contact; fflush(stdin); printf("Enter Name : "); fgets(contact.name, sizeof(contact.name), stdin);
+void addcontact() { FILE *file; file = fopen("contact.txt", "a");
+                   if (file == NULL) { printf("File does not exist."); } 
+                   else { struct contact contact; fflush(stdin); printf("Enter Name : "); 
+                         fgets(contact.name, sizeof(contact.name), stdin);
 
     printf("Enter Phone : ");
     fgets(contact.phone, sizeof(contact.phone), stdin);
@@ -20,7 +23,9 @@ void addcontact() { FILE *file; file = fopen("contact.txt", "a"); if (file == NU
 }
 }
 
-void displaycontacts() { struct contact contact; FILE *file; file = fopen("contact.txt", "r"); if (file == NULL) { printf("File does not exist."); } else { printf("Contacts:\n");
+void displaycontacts() { struct contact contact; FILE *file; file = fopen("contact.txt", "r");
+                        if (file == NULL) { printf("File does not exist.");}
+                        else { printf("Contacts:\n");
 
     while (fgets(contact.name, sizeof(contact.name), file) &&
            fgets(contact.phone, sizeof(contact.phone), file) &&
